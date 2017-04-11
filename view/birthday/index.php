@@ -23,7 +23,9 @@ $months = [
 
 		<h2><?php if ($lastDay 	!= $birthday['day']) echo $birthday["day"] ?></h2>
 		
-		<p><a>✐</a> <?=$birthday["person"]?> (<?=$birthday["year"]?>) <a>✖</a></p>
+		<p><a href="update/<?=$birthday["id"]?>">✐</a> 
+		<?=$birthday["person"]?> (<?=$birthday["year"]?>) 
+		<a href="delete/<?=$birthday["id"]?>">✖</a></p>
 		
 		<?php 
 			if 	($lastMonth == $birthday['month']) $lastDay = $birthday['day'];
@@ -33,18 +35,10 @@ $months = [
 
 	<?php 
 		$lastMonth = $birthday['month'];
+		if ($lastMonth == $birthday['month']) $lastDay = $birthday['day'];
+    	else $lastDay = 0;
 		endforeach;
 	?>
 </ul>
 
-<form action="create" method="post" autocomplete="off">
-	Name:<br>
-	<input type="text" name="person"><br>
-	Day:<br>
-	<input type="text" name="day"><br>
-	Month:<br>
-	<input type="text" name="month"><br>
-	Year:<br>
-	<input type="text" name="year"><br>
-	<button>Submit</button>
-</form>
+<a href="/kalender/birthday/create">+</a> 

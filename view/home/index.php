@@ -1,1 +1,3 @@
-<a href="/kalender/birthday/index">Birthdays.</a>
+<?php
+header("location: " . URL . "birthday/index");
+?>	
